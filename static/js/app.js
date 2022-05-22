@@ -39,7 +39,8 @@ function updateFilters() {
     // to the filters list. Otherwise, clear that filter from the filters object.
     if (eleValue){
         filters[filterId];
-    }   else{
+    }   
+    else{
         delete filters[filterId];
     }
   
