@@ -6,10 +6,11 @@ var tbody = d3.select("tbody");
 
 function buildTable(data) {
   // First, clear out any existing data
-
+  tbody.html("");
   // Next, loop through each object in the data
   // and append a row and cells for each value in the row
   data.forEach((dataRow) => {
+
     // Append a row to the table body
     let row = tbody.append("tr");
 
@@ -38,7 +39,9 @@ function updateFilters() {
     // 5. If a filter value was entered then add that filterId and value
     // to the filters list. Otherwise, clear that filter from the filters object.
     if (eleValue){
-        filters[filterId];
+        filters[filterId] = eleValue;
+        console.log(`filter: ${eleValue}`);
+
     }   
     else{
         delete filters[filterId];
@@ -58,6 +61,9 @@ function updateFilters() {
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
     Object.entries(filters).forEach(([key, value]) => {
+      console.log(`key: ${key}`);
+      console.log(`value: ${value}`);
+
         filteredData = filteredData.filter(row => row[key] === value);
       });
   
